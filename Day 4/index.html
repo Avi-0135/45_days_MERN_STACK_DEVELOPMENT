@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Tracker</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding-top: 40px;
+    }
+    .container {
+        background: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 280px;
+    }
+    h1 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    input, select, button {
+        width: 100%;
+        padding: 6px;
+        margin: 5px 0;
+        font-size: 14px;
+    }
+    button {
+        background: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #555;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+    li {
+        padding: 5px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Skill Tracker</h1>
+
+    <input type="text" id="skillName" placeholder="Skill Name">
+    <select id="proficiency">
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+    </select>
+    <button onclick="addSkill()">Add Skill</button>
+
+    <h3>Skills:</h3>
+    <ul id="skillList"></ul>
+</div>
+
+<script>
+    // Start with some skills
+    let skills = [
+        { name: 'HTML', proficiency: 'Intermediate' },
+        { name: 'CSS', proficiency: 'Intermediate' },
+        { name: 'JavaScript', proficiency: 'Beginner' }
+    ];
+
+    function renderSkills() {
+        let skillList = document.getElementById('skillList');
+        skillList.innerHTML = ''; // clear list
+
+        skills.forEach(skill => {
+            let li = document.createElement('li');
+            li.textContent = `${skill.name} (${skill.proficiency})`;
+            skillList.appendChild(li);
+        });
+    }
+
+    function addSkill() {
+        let name = document.getElementById('skillName').value.trim();
+        let proficiency = document.getElementById('proficiency').value;
+
+        if (name === '') {
+            alert('Please enter a skill name!');
+            return;
+        }
+
+        skills.push({ name, proficiency });
+        document.getElementById('skillName').value = ''; // clear input
+        renderSkills();
+    }
+
+    renderSkills(); // show initial skills
+</script>
+
+</body>
+</html>
