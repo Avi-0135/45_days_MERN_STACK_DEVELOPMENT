@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .calculator {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 320px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .calculator:hover {
+    transform: scale(2.05);  
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3); 
+    cursor: pointer; 
+    }
+    .calculator h2 {
+      color: #5a2d82;
+      margin-bottom: 20px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .calculator h2:hover {
+      color: red;
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+    input[type="number"] {
+      padding: 10px;
+      width: 80%;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #5a2d82;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #452265;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <h2>🎓 Grade Calculator</h2>
+    <input type="number" id="score" placeholder="Enter score (0–100)" min="0" max="100">
+    <br>
+    <button onclick="showGrade()">Get Grade</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateGrade(score) {
+      if (score >= 90 && score <= 100) return "A 🏆";
+      else if (score >= 80) return "B 👍 ";
+      else if (score >= 70) return "C 🙂 ";
+      else if (score >= 60) return "D 😕 ";
+      else if (score >= 0) return "F 💀 ";
+      else return "Invalid Score ❌";
+    }
+
+    function showGrade() {
+      let score = document.getElementById("score").value;
+      let grade = calculateGrade(parseInt(score));
+      document.getElementById("result").textContent = "Your Grade: " + grade;
+    }
+  </script>
+
+</body>
+</html>
