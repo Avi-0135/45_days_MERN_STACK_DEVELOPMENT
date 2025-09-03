@@ -1,0 +1,82 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Quote container */
+.container {
+  background: #ffffff;
+  padding: 30px 25px;
+  margin: 20px auto;
+  width: 320px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.container:hover {
+  transform: translateY(-4px);
+}
+
+/* Quote text */
+#quotes {
+  font-size: 22px;
+  font-style: italic;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  position: relative;
+}
+#quotes::before {
+  content: "“";
+  font-size: 32px;
+  color: #60a5fa;
+  position: absolute;
+  left: -15px;
+  top: -10px;
+}
+#quotes::after {
+  content: "”";
+  font-size: 32px;
+  color: #60a5fa;
+  position: absolute;
+  right: -15px;
+  bottom: -10px;
+}
+
+#author {
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+#author::before {
+  content: "— ";
+  color: #888;
+}
+
+#click {
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+#click:hover {
+  transform: scale(1.05);
+  background-color: #1e40af;
+}
